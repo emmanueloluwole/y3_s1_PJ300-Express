@@ -2,9 +2,12 @@ import express from 'express';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 import designRoutes from './routes/designs';
+import { initDb } from './database';
 
+initDb();
 dotenv.config();
 const app = express();
+
 
 app.use(morgan("tiny")); // Logging middleware
 app.use(express.json()); // JSON body parser
