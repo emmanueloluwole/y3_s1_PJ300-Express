@@ -1,0 +1,14 @@
+### Create a new design
+POST http://localhost:3000/api/v1/designs HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Custom Chair",
+  "modelUrl": "https://your-storage.com/chair.glb",
+  "metadata": {
+    "color": "red",
+    "dimensions": { "width": 50, "height": 100, "depth": 60 }
+  }
+}
+### Create a new design
+Get http://localhost:3000/api/v1/designs HTTP/1.1
