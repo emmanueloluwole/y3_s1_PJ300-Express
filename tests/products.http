@@ -1,0 +1,28 @@
+### Create a product
+POST http://localhost:3000/api/v1/products
+Content-Type: application/json
+
+{
+  "name": "Ergo Chair X",
+  "description": "Comfortable mesh chair",
+  "price": 249.99,
+  "shopId": "653a1f2e9c8b4a1d2f4e5678"
+}
+
+### Get all products
+GET http://localhost:3000/api/v1/products
+
+### Get product by ID
+GET http://localhost:3000/api/v1/products/653a1f2e9c8b4a1d2f4e9999
+
+### Update product
+PUT http://localhost:3000/api/v1/products/653a1f2e9c8b4a1d2f4e9998
+Content-Type: application/json
+
+{
+  "price": 269.99,
+  "description": "Updated description"
+}
+
+### Delete product
+DELETE http://localhost:3000/api/v1/products/653a1f2e9c8b4a1d2f4e9999

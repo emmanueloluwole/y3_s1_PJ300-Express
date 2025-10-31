@@ -1,19 +1,27 @@
-import express from 'express';
-import morgan from 'morgan';
-import dotenv from 'dotenv';
-import designRoutes from './routes/designs';
-import { initDb } from './database';
+import express from "express";
+import morgan from "morgan";
+import dotenv from "dotenv";
+import { connectToDatabase } from "./database";
 
-initDb();
+import productRoutes from "./routes/product";
+import orderRoutes from "./routes/order";
+import shopRoutes from "./routes/shop";
+import userRoutes from "./routes/user";
+
 dotenv.config();
 const app = express();
+const PORT = process.env.PORT || 3000;
 
+app.use(morgan("tiny"));
+app.use(express.json());
 
-app.use(morgan("tiny")); // Logging middleware
-app.use(express.json()); // JSON body parser
+connectToDatabase().then(() => {
+  app.use("/api/v1/users", userRoutes);
+  app.use("/api/v1/shops", shopRoutes);
+  app.use("/api/v1/products", productRoutes);
+  app.use("/api/v1/orders", orderRoutes);
 
-app.use('/api/v1/designs', designRoutes); // Route handler
-
-app.listen(process.env.PORT || 3000, () => {
-  console.log("Server running on port 3000");
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
 });

@@ -1,0 +1,29 @@
+### Create an order
+POST http://localhost:3000/api/v1/orders
+Content-Type: application/json
+
+{
+  "userId": "653a1f2e9c8b4a1d2f4e1234",
+  "products": ["Ergo Chair X", "Desk Lamp"],
+  "quantity": 2,
+  "totalPrice": 499.98,
+  "status": "pending",
+  "shopId": "653a1f2e9c8b4a1d2f4e5678"
+}
+
+### Get all orders
+GET http://localhost:3000/api/v1/orders
+
+### Get order by ID
+GET http://localhost:3000/api/v1/orders/6904adf408932f9d319f7ab5
+
+### Update order
+PUT http://localhost:3000/api/v1/orders/6904adf408932f9d319f7ab5
+Content-Type: application/json
+
+{
+  "status": "Pending"
+}
+
+### Delete order
+DELETE http://localhost:3000/api/v1/orders/6904ac8c08932f9d319f7ab1

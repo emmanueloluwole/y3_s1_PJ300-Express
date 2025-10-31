@@ -2,9 +2,12 @@ import { ObjectId } from "mongodb";
 
 export interface User {
   _id?: ObjectId;
-  username: string;
+  fullName: string;
   email: string;
   passwordHash: string;
-  role: "shop" | "designer" | "customer";
+  address: string;
+  phoneNumber: string;
+  shopId?: string;
+  role: "customer" | "shop";
   createdAt?: Date;
 }

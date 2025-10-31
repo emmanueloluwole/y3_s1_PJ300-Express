@@ -1,0 +1,32 @@
+### Create a new shop
+POST http://localhost:3000/api/v1/shops
+Content-Type: application/json
+
+{
+  "name": "Oluwole's Emporium",
+  "ownerId": "653a1f2e9c8b4a1d2f4e1234",
+  "logo": "https://yourcdn.com/logo.png",
+  "title": "The Best Shop",
+  "favIcon": "https://yourcdn.com/favicon.ico",
+  "slogan": "Quality meets style",
+  "heroImage": "https://yourcdn.com/hero.jpg",
+  "currency": "EUR"
+}
+
+### Get all shops
+GET http://localhost:3000/api/v1/shops
+
+### Get shop by ID
+GET http://localhost:3000/api/v1/shops/6904a8c71bc6767f0f4270c0
+
+### Update shop
+PUT http://localhost:3000/api/v1/shops/6904a8c71bc6767f0f4270c3
+Content-Type: application/json
+
+{
+  "slogan": "slogan",
+  "title": "Updated Shop Title"
+}
+
+### Delete shop
+DELETE http://localhost:3000/api/v1/shops/6904a8c71bc6767f0f4270c3
