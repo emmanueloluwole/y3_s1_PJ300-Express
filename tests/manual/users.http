@@ -1,0 +1,32 @@
+### Create a new user
+POST http://localhost:3000/api/v1/users
+Content-Type: application/json
+
+{
+  "fullName": "Oll",
+  "email": "oluwole.adeyemi@example.com",
+  "passwordHash": "SecurePass123!",
+  "address": "12 Innovation Lane, Dublin",
+  "phoneNumber": "+353871234567",
+  "shopId": "65f1a2c3e4b5d67890123456",  
+  "role": "shop"
+}
+
+
+### Get all users
+GET http://localhost:3000/api/v1/users
+
+### Get user by ID
+GET http://localhost:3000/api/v1/users/690bedb077a0cac0fb8226c7
+
+### Update user
+PUT http://localhost:3000/api/v1/users/690bedb077a0cac0fb8226c7
+Content-Type: application/json
+
+{
+  "address": "sligo",
+ 
+}
+
+### Delete user
+DELETE http://localhost:3000/api/v1/users/690bedb077a0cac0fb8226c7

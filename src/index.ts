@@ -9,7 +9,7 @@ import shopRoutes from "./routes/shop";
 import userRoutes from "./routes/user";
 
 dotenv.config();
-const app = express();
+export const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(morgan("tiny"));

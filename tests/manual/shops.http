@@ -3,15 +3,12 @@ POST http://localhost:3000/api/v1/shops
 Content-Type: application/json
 
 {
-  "name": "Oluwole's Emporium",
-  "ownerId": "653a1f2e9c8b4a1d2f4e1234",
-  "logo": "https://yourcdn.com/logo.png",
-  "title": "The Best Shop",
-  "favIcon": "https://yourcdn.com/favicon.ico",
-  "slogan": "Quality meets style",
-  "heroImage": "https://yourcdn.com/hero.jpg",
-  "currency": "EUR"
+  "name": "3D Express Store",
+  "address": "42 Maker Street, Dublin",
+  "phoneNumber": "+353861234890",
+  "description": "Specialist in 3D printing gear and accessories"
 }
+
 
 ### Get all shops
 GET http://localhost:3000/api/v1/shops
