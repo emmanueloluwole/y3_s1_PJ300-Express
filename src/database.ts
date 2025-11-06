@@ -5,7 +5,7 @@ dotenv.config();
 
 const connectionString = process.env.DB_CONN_STRING || "";
 const dbName = process.env.DB_NAME || "3dexpress";
-const client = new MongoClient(connectionString);
+export const client = new MongoClient(connectionString);
 
 export const collections: {
   users?: Collection;
