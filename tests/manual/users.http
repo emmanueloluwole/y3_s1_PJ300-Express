@@ -20,12 +20,11 @@ GET http://localhost:3000/api/v1/users
 GET http://localhost:3000/api/v1/users/690bedb077a0cac0fb8226c7
 
 ### Update user
-PUT http://localhost:3000/api/v1/users/690bedb077a0cac0fb8226c7
+PUT http://localhost:3000/api/v1/users/690beb117dfac882f41d4574
 Content-Type: application/json
 
 {
-  "address": "sligo",
- 
+  "address": "sligo"
 }
 
 ### Delete user

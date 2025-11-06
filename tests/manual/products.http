@@ -16,7 +16,7 @@ GET http://localhost:3000/api/v1/products
 GET http://localhost:3000/api/v1/products/653a1f2e9c8b4a1d2f4e9999
 
 ### Update product
-PUT http://localhost:3000/api/v1/products/653a1f2e9c8b4a1d2f4e9998
+PUT http://localhost:3000/api/v1/products/6904aa591bc6767f0f4270c5
 Content-Type: application/json
 
 {
@@ -25,4 +25,4 @@ Content-Type: application/json
 }
 
 ### Delete product
-DELETE http://localhost:3000/api/v1/products/653a1f2e9c8b4a1d2f4e9999
+DELETE http://localhost:3000/api/v1/products/6904aa591bc6767f0f4270c5

@@ -17,7 +17,7 @@ GET http://localhost:3000/api/v1/shops
 GET http://localhost:3000/api/v1/shops/6904a8c71bc6767f0f4270c0
 
 ### Update shop
-PUT http://localhost:3000/api/v1/shops/6904a8c71bc6767f0f4270c3
+PUT http://localhost:3000/api/v1/shops/690bee2b77a0cac0fb8226c9
 Content-Type: application/json
 
 {
@@ -26,4 +26,4 @@ Content-Type: application/json
 }
 
 ### Delete shop
-DELETE http://localhost:3000/api/v1/shops/6904a8c71bc6767f0f4270c3
+DELETE http://localhost:3000/api/v1/shops/690bee2b77a0cac0fb8226c9
