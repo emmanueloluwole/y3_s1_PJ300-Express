@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
   "fullName": "Oll",
-  "email": "oluwole.adeyemi@example.com",
+  "email": "oluwole.adeyem",
   "passwordHash": "SecurePass123!",
   "address": "12 Innovation Lane, Dublin",
   "phoneNumber": "+353871234567",
@@ -24,7 +24,7 @@ PUT http://localhost:3000/api/v1/users/690beb117dfac882f41d4574
 Content-Type: application/json
 
 {
-  "address": "sligo"
+    "email": "oluwole.ad"
 }
 
 ### Delete user
