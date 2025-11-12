@@ -8,6 +8,7 @@ export interface Product {
   price: number;
   shopId: string;
   createdAt?: Date;
+  category: string[];
 }
 
 export const createProductSchema = z.object({
@@ -15,4 +16,5 @@ export const createProductSchema = z.object({
   description: z.string().optional(),
   price: z.number().positive(),
   shopId: z.string(),
+  category: z.array(z.string()).min(3),
 });
