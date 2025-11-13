@@ -16,5 +16,5 @@ export const createProductSchema = z.object({
   description: z.string().optional(),
   price: z.number().positive(),
   shopId: z.string(),
-  category: z.array(z.string()).min(3),
+  category: z.array(z.string()).min(1),
 });

@@ -6,6 +6,7 @@ Content-Type: application/json
   "name": "Ergo Chair X",
   "description": "Comfortable mesh chair",
   "price": 249.99,
+  "category": ["Office Furniture"],
   "shopId": "653a1f2e9c8b4a1d2f4e5678"
 }
 
