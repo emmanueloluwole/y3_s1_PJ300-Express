@@ -3,7 +3,8 @@ POST http://localhost:3000/api/v1/products
 Content-Type: application/json
 
 {
-  "name": "Ergo Chair X",
+  "name": "Ergo Chair y",
+  "category": ["office", "chair", "ergonomic"],
   "description": "Comfortable mesh chair",
   "price": 249.99,
   "shopId": "653a1f2e9c8b4a1d2f4e5678"

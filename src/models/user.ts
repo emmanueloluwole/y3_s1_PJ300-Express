@@ -22,3 +22,4 @@ export const createUserSchema = z.object({
   shopId: z.string().optional(),
   role: z.enum(["customer", "shop"]),
 });
+

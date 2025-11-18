@@ -12,9 +12,12 @@ export interface Product {
 }
 
 export const createProductSchema = z.object({
-  name: z.string().min(2).max(100),
-  description: z.string().optional(),
+  name: z.string().min(2),
   price: z.number().positive(),
+  category: z.array(z.string()).nonempty(),
   shopId: z.string(),
-  category: z.array(z.string()).min(3),
+  description: z.string().optional(),
 });
+
+
+export const updateProductSchema = createProductSchema.partial();

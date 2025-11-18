@@ -1,8 +1,7 @@
 import { Request, Response } from "express";
 import { ObjectId } from "mongodb";
 import { collections } from "../database";
-import { createProductSchema } from "../models/product";
-import { Product } from "../models/product";
+import { Product, createProductSchema } from "../models/product";
 
 export const getProducts = async (_req: Request, res: Response) => {
   try {
@@ -51,26 +50,37 @@ export const createProduct = async (req: Request, res: Response) => {
 
   try {
     const result = await collections.products?.insertOne(newProduct);
-    result
-      ? res.status(201).location(`${result.insertedId}`).json({ message: `Created product with ID ${result.insertedId}` })
-      : res.status(500).send("Failed to create product.");
+
+    if (!result || !result.insertedId) {
+      return res.status(500).send("Failed to create product.");
+    }
+
+    return res.status(201).json({ insertedId: result.insertedId });
   } catch (error) {
     if (error instanceof Error) {
       console.log(`Insert error: ${error.message}`);
     } else {
       console.log(`Unknown error: ${error}`);
     }
-    res.status(400).send("Unable to create product.");
+    return res.status(400).send("Unable to create product.");
   }
 };
 
 export const updateProduct = async (req: Request, res: Response) => {
   const id = req.params.id;
+  const updateData = req.body;
+
+  // Ensure category is trimmed if it exists
+  if (Array.isArray(updateData.category)) {
+    updateData.category = updateData.category.map((c: string) => c.trim());
+  }
+
   try {
     const result = await collections.products?.updateOne(
       { _id: new ObjectId(id) },
-      { $set: req.body }
+      { $set: updateData }
     );
+
     result?.matchedCount
       ? res.status(200).json({ message: `Updated product with ID ${id}` })
       : res.status(404).send(`Product with ID ${id} not found.`);
@@ -88,15 +98,22 @@ export const deleteProduct = async (req: Request, res: Response) => {
   const id = req.params.id;
   try {
     const result = await collections.products?.deleteOne({ _id: new ObjectId(id) });
-    result?.deletedCount
-      ? res.status(200).json({ message: `Deleted product with ID ${id}` })
-      : res.status(404).send(`Product with ID ${id} not found.`);
+
+    if (!result) {
+      return res.status(500).json({ error: "Delete failed" });
+    }
+
+    if (result.deletedCount && result.deletedCount > 0) {
+      return res.status(200).json({ deletedCount: result.deletedCount });
+    } else {
+      return res.status(404).json({ error: `Product with ID ${id} not found.` });
+    }
   } catch (error) {
     if (error instanceof Error) {
       console.log(`Delete error: ${error.message}`);
     } else {
       console.log(`Unknown error: ${error}`);
     }
-    res.status(400).send("Failed to delete product.");
+    return res.status(400).json({ error: "Failed to delete product." });
   }
 };
