@@ -3,7 +3,7 @@ POST http://localhost:3000/api/v1/orders
 Content-Type: application/json
 
 {
-  "userId": "653a1f2e9c8b4a1d2f4e1234",
+  "userId": "j",
   "products": ["Ergo Chair X", "Desk Lamp"],
   "quantity": 2,
   "totalPrice": 499.98,
@@ -15,10 +15,9 @@ Content-Type: application/json
 GET http://localhost:3000/api/v1/orders
 
 ### Get order by ID
-GET http://localhost:3000/api/v1/orders/691cfb2ab2357844fad957d3
-
+GET http://localhost:3000/api/v1/orders/691d01eee786e612c3599a6e
 ### Update order
-PUT http://localhost:3000/api/v1/orders/691cfb2ab2357844fad957d2
+PUT http://localhost:3000/api/v1/orders/691d01eee786e612c3599a6e
 Content-Type: application/json
 
 {
@@ -26,4 +25,4 @@ Content-Type: application/json
 }
 
 ### Delete order
-DELETE http://localhost:3000/api/v1/orders/691cfb2ab2357844fad957d2
+DELETE http://localhost:3000/api/v1/orders/691d01eee786e612c3599a6e
