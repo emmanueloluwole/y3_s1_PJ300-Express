@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
   "fullName": "Oll",
-  "email": "oluwole.adeyem",
+  "email": "oluwole.adeyem@gmail.com",
   "passwordHash": "SecurePass123!",
   "address": "12 Innovation Lane, Dublin",
   "phoneNumber": "+353871234567",
