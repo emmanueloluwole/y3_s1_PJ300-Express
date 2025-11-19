@@ -20,3 +20,4 @@ export const createOrderSchema = z.object({
   status: z.enum(["pending", "shipped", "delivered"]),
   shopId: z.string(),
 });
+export const updateOrderSchema = createOrderSchema.partial();

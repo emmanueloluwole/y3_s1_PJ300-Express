@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Request, Response } from "express"; 
 import { ObjectId } from "mongodb";
 import { collections } from "../database";
 import { createShopSchema } from "../models/shop";
@@ -11,11 +11,7 @@ export const getShops = async (_req: Request, res: Response) => {
       ? res.status(200).json(shops)
       : res.status(404).send("No shops found.");
   } catch (error) {
-    if (error instanceof Error) {
-      console.log(`Error fetching shops: ${error.message}`);
-    } else {
-      console.log(`Unknown error: ${error}`);
-    }
+    console.error(`Error fetching shops:`, error);
     res.status(400).send("Failed to retrieve shops.");
   }
 };
@@ -28,11 +24,7 @@ export const getShopById = async (req: Request, res: Response) => {
       ? res.status(200).json(shop)
       : res.status(404).send(`Shop with ID ${id} not found.`);
   } catch (error) {
-    if (error instanceof Error) {
-      console.log(`Error fetching shop: ${error.message}`);
-    } else {
-      console.log(`Unknown error: ${error}`);
-    }
+    console.error(`Error fetching shop:`, error);
     res.status(400).send("Failed to retrieve shop.");
   }
 };
@@ -47,7 +39,7 @@ export const createShop = async (req: Request, res: Response) => {
   const newShop: Shop = {
     ...validation.data,
     createdAt: new Date(),
-    ownerId: new ObjectId,
+    ownerId: new ObjectId(),
     logo: "",
     title: "",
     favIcon: "",
@@ -59,14 +51,12 @@ export const createShop = async (req: Request, res: Response) => {
   try {
     const result = await collections.shops?.insertOne(newShop);
     result
-      ? res.status(201).location(`${result.insertedId}`).json({ message: `Created shop with ID ${result.insertedId}` })
+      ? res.status(201)
+          .location(`${result.insertedId}`)
+          .json({ message: `Created shop with ID ${result.insertedId}` })
       : res.status(500).send("Failed to create shop.");
   } catch (error) {
-    if (error instanceof Error) {
-      console.log(`Insert error: ${error.message}`);
-    } else {
-      console.log(`Unknown error: ${error}`);
-    }
+    console.error(`Insert error:`, error);
     res.status(400).send("Unable to create shop.");
   }
 };
@@ -82,11 +72,7 @@ export const updateShop = async (req: Request, res: Response) => {
       ? res.status(200).json({ message: `Updated shop with ID ${id}` })
       : res.status(404).send(`Shop with ID ${id} not found.`);
   } catch (error) {
-    if (error instanceof Error) {
-      console.log(`Update error: ${error.message}`);
-    } else {
-      console.log(`Unknown error: ${error}`);
-    }
+    console.error(`Update error:`, error);
     res.status(400).send("Failed to update shop.");
   }
 };
@@ -99,11 +85,7 @@ export const deleteShop = async (req: Request, res: Response) => {
       ? res.status(200).json({ message: `Deleted shop with ID ${id}` })
       : res.status(404).send(`Shop with ID ${id} not found.`);
   } catch (error) {
-    if (error instanceof Error) {
-      console.log(`Delete error: ${error.message}`);
-    } else {
-      console.log(`Unknown error: ${error}`);
-    }
+    console.error(`Delete error:`, error);
     res.status(400).send("Failed to delete shop.");
   }
 };

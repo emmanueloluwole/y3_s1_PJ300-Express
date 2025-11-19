@@ -51,18 +51,23 @@ export const createUser = async (req: Request, res: Response) => {
 
   try {
     const result = await collections.users?.insertOne(newUser);
-    result
-      ? res.status(201).location(`${result.insertedId}`).json({ message: `Created user with ID ${result.insertedId}` })
-      : res.status(500).send("Failed to create user.");
+
+    if (!result || !result.insertedId) {
+      return res.status(500).send("Failed to create user.");
+    }
+
+    // Return insertedId so tests can use it
+    return res.status(201).json({ insertedId: result.insertedId });
   } catch (error) {
     if (error instanceof Error) {
       console.log(`Insert error: ${error.message}`);
     } else {
       console.log(`Unknown error: ${error}`);
     }
-    res.status(400).send("Unable to create user.");
+    return res.status(400).send("Unable to create user.");
   }
 };
+
 
 export const updateUser = async (req: Request, res: Response) => {
   const id = req.params.id;
@@ -88,15 +93,23 @@ export const deleteUser = async (req: Request, res: Response) => {
   const id = req.params.id;
   try {
     const result = await collections.users?.deleteOne({ _id: new ObjectId(id) });
-    result?.deletedCount
-      ? res.status(200).json({ message: `Deleted user with ID ${id}` })
-      : res.status(404).send(`User with ID ${id} not found.`);
+
+    if (!result) {
+      return res.status(500).json({ error: "Delete failed" });
+    }
+
+    if (result.deletedCount && result.deletedCount > 0) {
+      // Return deletedCount so tests can assert it
+      return res.status(200).json({ deletedCount: result.deletedCount });
+    } else {
+      return res.status(404).json({ error: `User with ID ${id} not found.` });
+    }
   } catch (error) {
     if (error instanceof Error) {
       console.log(`Delete error: ${error.message}`);
     } else {
       console.log(`Unknown error: ${error}`);
     }
-    res.status(400).send("Failed to delete user.");
+    return res.status(400).json({ error: "Failed to delete user." });
   }
 };
