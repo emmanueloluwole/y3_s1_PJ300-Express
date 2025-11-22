@@ -3,13 +3,13 @@ POST http://localhost:3000/api/v1/users
 Content-Type: application/json
 
 {
-  "fullName": "Alex Johnson",
-  "email": "alex@example.com",
-  "passwordHash": "hashedpassword123", 
-  "address": "123 Main Street, Dublin",
-  "phoneNumber": "+353871234567",
-  "role": "shop"
-
+  "fullName": "Patrick Doyle",
+  "email": "patrick.doyle@example.com",
+  "passwordHash": "hashedpassword444",
+  "address": "33 High Street, Limerick",
+  "phoneNumber": "+353871234574",
+  "shopId": "691f8a71874fa3f5d2b7ce6c",
+  "role": "customer"
 }
 
 
