@@ -3,13 +3,13 @@ POST http://localhost:3000/api/v1/users
 Content-Type: application/json
 
 {
-  "fullName": "Oll",
-  "email": "oluwole.adeyem@gmail.com",
-  "passwordHash": "SecurePass123!",
-  "address": "12 Innovation Lane, Dublin",
+  "fullName": "Alex Johnson",
+  "email": "alex@example.com",
+  "passwordHash": "hashedpassword123", 
+  "address": "123 Main Street, Dublin",
   "phoneNumber": "+353871234567",
-  "shopId": "65f1a2c3e4b5d67890123456",  
   "role": "shop"
+
 }
 
 
@@ -20,11 +20,11 @@ GET http://localhost:3000/api/v1/users
 GET http://localhost:3000/api/v1/users/690bedb077a0cac0fb8226c7
 
 ### Update user
-PUT http://localhost:3000/api/v1/users/690beb117dfac882f41d4574
+PUT http://localhost:3000/api/v1/users/69211195380a8797064535d7
 Content-Type: application/json
 
 {
-    "email": "oluwole.ad"
+    "shopId": "691f8a71874fa3f5d2b7ce6c"
 }
 
 ### Delete user

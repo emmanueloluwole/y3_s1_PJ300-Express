@@ -2,13 +2,13 @@
 POST http://localhost:3000/api/v1/products
 Content-Type: application/json
 
-{
-  "name": "Ergo Chair y",
-  "category": ["office", "chair", "ergonomic"],
-  "description": "Comfortable mesh chair",
-  "price": 249.99,
-  "category": ["Office Furniture"],
-  "shopId": "653a1f2e9c8b4a1d2f4e5678"
+{ 
+  "name": "Chair",
+  "price": 60,
+  "category": ["kitchen"],
+  "shopId": "691f8a71874fa3f5d2b7ce6c",
+  "description": "Kitchen chair"
+
 }
 
 ### Get all products
@@ -27,4 +27,4 @@ Content-Type: application/json
 }
 
 ### Delete product
-DELETE http://localhost:3000/api/v1/products/6904aa591bc6767f0f4270c5
+DELETE http://localhost:3000/api/v1/products/6921a25b77747c9dace05592

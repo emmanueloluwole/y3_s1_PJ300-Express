@@ -17,12 +17,12 @@ GET http://localhost:3000/api/v1/shops
 GET http://localhost:3000/api/v1/shops/6904a8c71bc6767f0f4270c0
 
 ### Update shop
-PUT http://localhost:3000/api/v1/shops/690bee2b77a0cac0fb8226c9
+PUT http://localhost:3000/api/v1/shops/691f8a71874fa3f5d2b7ce6c
 Content-Type: application/json
 
 {
-  "slogan": "slogan",
-  "title": "Updated Shop Title"
+    "ownerId": "691f8a71874fa3f5d2b7ce6c"
+
 }
 
 ### Delete shop

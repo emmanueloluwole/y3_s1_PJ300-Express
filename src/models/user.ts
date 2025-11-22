@@ -8,7 +8,7 @@ export interface User {
   passwordHash: string;
   address: string;
   phoneNumber: string;
-  shopId?: string;
+  shopId: string;
   role: "customer" | "shop";
   createdAt?: Date;
 }
@@ -19,7 +19,7 @@ export const createUserSchema = z.object({
   passwordHash: z.string().min(6),
   address: z.string(),
   phoneNumber: z.string().regex(/^\+353\d{7,12}$/),
-  shopId: z.string().optional(),
+  shopId: z.string(),
   role: z.enum(["customer", "shop"]),
 });
 
