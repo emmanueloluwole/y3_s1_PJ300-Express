@@ -24,7 +24,7 @@ PUT http://localhost:3000/api/v1/users/69211195380a8797064535d7
 Content-Type: application/json
 
 {
-    "shopId": "691f8a71874fa3f5d2b7ce6c"
+    "role": "admin"
 }
 
 ### Delete user
