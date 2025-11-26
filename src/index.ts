@@ -7,10 +7,11 @@ import productRoutes from "./routes/product";
 import orderRoutes from "./routes/order";
 import shopRoutes from "./routes/shop";
 import userRoutes from "./routes/user";
-
 dotenv.config();
 export const app = express();
 const PORT = process.env.PORT || 3000;
+const cors = require('cors');
+app.use(cors())
 
 app.use(morgan("tiny"));
 app.use(express.json());
