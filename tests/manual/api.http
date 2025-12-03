@@ -1,0 +1,133 @@
+### USERS CRUD
+
+### Get all users
+GET http://localhost:3000/api/v1/users
+
+### Get single user
+GET http://localhost:3000/api/v1/users/69211195380a8797064535db
+
+### Create a user
+POST http://localhost:3000/api/v1/users
+Content-Type: application/json
+
+{
+  "fullName": "Emma Walsh",
+  "email": "emma.walsh@example.com",
+  "passwordHash": "hashedpassword111",
+  "address": "22 Oak Street, Dublin",
+  "phoneNumber": "+353871234571",
+  "shopId": "691f8a71874fa3f5d2b7ce6c",
+  "role": "customer"
+}
+
+### Update a user
+PUT http://localhost:3000/api/v1/users/69211195380a8797064535db
+Content-Type: application/json
+
+{
+  "address": "99 Updated Street, Dublin",
+  "phoneNumber": "+353871234599"
+}
+
+### Delete a user
+DELETE http://localhost:3000/api/v1/users/69211195380a8797064535db
+
+
+### SHOPS CRUD
+
+### Get all shops
+GET http://localhost:3000/api/v1/shops
+
+### Get single shop
+GET http://localhost:3000/api/v1/shops/691f8a71874fa3f5d2b7ce6c
+
+### Create a shop
+POST http://localhost:3000/api/v1/shops
+Content-Type: application/json
+
+{
+  "name": "Urban Living Store",
+  "ownerId": "69211195380a8797064535d7",
+  "logo": "691f8a71874fa3f5d2b7ce6c/logo.png",
+  "currency": "eur"
+}
+
+### Update a shop
+PUT http://localhost:3000/api/v1/shops/691f8a71874fa3f5d2b7ce6c
+Content-Type: application/json
+
+{
+  "name": "Urban Living Store Updated",
+  "currency": "usd"
+}
+
+### Delete a shop
+DELETE http://localhost:3000/api/v1/shops/691f8a71874fa3f5d2b7ce6c
+
+
+### PRODUCTS CRUD
+
+### Get all products
+GET http://localhost:3000/api/v1/products
+
+### Get single product
+GET http://localhost:3000/api/v1/products/77abc123def4567890
+
+### Create a product
+POST http://localhost:3000/api/v1/products
+Content-Type: application/json
+
+{
+  "shopId": "691f8a71874fa3f5d2b7ce6c",
+  "name": "Desk",
+  "category": "Office",
+  "images": [
+    "691f8a71874fa3f5d2b7ce6c/77abc123def4567890/screenshot1.png"
+  ]
+}
+
+### Update a product
+PUT http://localhost:3000/api/v1/products/77abc123def4567890
+Content-Type: application/json
+
+{
+  "name": "Desk Updated",
+  "category": "Home Office"
+}
+
+### Delete a product
+DELETE http://localhost:3000/api/v1/products/77abc123def4567890
+
+
+### ORDERS CRUD
+
+### Get all orders
+GET http://localhost:3000/api/v1/orders
+
+### Get single order
+GET http://localhost:3000/api/v1/orders/69222295380a879706453600
+
+### Create an order
+POST http://localhost:3000/api/v1/orders
+Content-Type: application/json
+
+{
+  "userId": "69211195380a8797064535db",
+  "products": ["77abc123def4567890", "88xyz987uvw6543210"],
+  "quantity": 2,
+  "totalPrice": 450,
+  "status": "pending",
+  "shopId": "691f8a71874fa3f5d2b7ce6c"
+}
+
+### Update an order
+PUT http://localhost:3000/api/v1/orders/69222295380a879706453600
+Content-Type: application/json
+
+{
+  "status": "shipped",
+  "totalPrice": 460
+}
+
+### Delete an order
+DELETE http://localhost:3000/api/v1/orders/69222295380a879706453600
