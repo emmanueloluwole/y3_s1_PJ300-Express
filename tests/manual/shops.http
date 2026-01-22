@@ -3,11 +3,16 @@ POST http://localhost:3000/api/v1/shops
 Content-Type: application/json
 
 {
-  "name": "3D Express Store",
-  "address": "42 Maker Street, Dublin",
-  "phoneNumber": "+353861234890",
-  "description": "Specialist in 3D printing gear and accessories"
+   "name": "Tech Haven Electronics",
+  "slogan": "Your home for smart living",
+  "ownerId": "69211195380a8797064535d7",
+  "logo": "tech-haven-logo.png",
+  "title": "Tech Haven",
+  "favIcon": "tech-haven-favicon.ico",
+  "heroImage": "https://images.unsplash.com/photo-1518770660439-4636190af475",
+  "currency": "EUR"
 }
+
 
 
 ### Get all shops

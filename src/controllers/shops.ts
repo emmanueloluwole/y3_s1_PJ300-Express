@@ -39,13 +39,6 @@ export const createShop = async (req: Request, res: Response) => {
   const newShop: Shop = {
     ...validation.data,
     createdAt: new Date(),
-    ownerId: new ObjectId(),
-    logo: "",
-    title: "",
-    favIcon: "",
-    slogan: "",
-    heroImage: "",
-    currency: ""
   };
 
   try {

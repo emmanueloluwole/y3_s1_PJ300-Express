@@ -4,7 +4,7 @@ import z from "zod";
 export interface Shop {
   _id?: ObjectId;
   name: string;
-  ownerId: ObjectId;
+  ownerId: string;
   logo: string;
   title: string;
   favIcon: string;
@@ -15,7 +15,11 @@ export interface Shop {
 }
 export const createShopSchema = z.object({
   name: z.string().min(2).max(100),
-  address: z.string(),
-  phoneNumber: z.string().regex(/^\+353\d{7,12}$/),
-  description: z.string().optional(),
+  slogan: z.string().min(1),
+  ownerId: z.string().min(1),
+  logo: z.string().min(1),
+  title: z.string().min(1),
+  favIcon: z.string().min(1),
+  heroImage: z.string().min(1),
+  currency: z.string().min(1)
 });
