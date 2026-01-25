@@ -28,3 +28,6 @@ Content-Type: application/json
 
 ### Delete product
 DELETE http://localhost:3000/api/v1/products/6921a25b77747c9dace05592
+
+### Delete product
+GET http://localhost:3000/api/v1/products/shop/691f8a71874fa3f5d2b7ce6c

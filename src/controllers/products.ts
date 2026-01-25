@@ -65,6 +65,21 @@ export const createProduct = async (req: Request, res: Response) => {
     return res.status(400).send("Unable to create product.");
   }
 };
+export const getProductsByShopId = async (req: Request, res: Response) => {
+  const { shopId } = req.params;
+
+  try {
+    const products = await collections.products
+      ?.find({ shopId })
+      .toArray();
+
+    return res.status(200).json(products);
+  } catch (error) {
+    console.error("Error fetching products by shopId:", error);
+    return res.status(500).json({ error: "Failed to fetch products" });
+  }
+};
+
 
 export const updateProduct = async (req: Request, res: Response) => {
   const id = req.params.id;
