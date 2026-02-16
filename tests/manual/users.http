@@ -9,7 +9,8 @@ Content-Type: application/json
   "address": "33 High Street, Limerick",
   "phoneNumber": "+353871234574",
   "shopId": "691f8a71874fa3f5d2b7ce6c",
-  "role": "customer"
+  "role": "customer",
+  "savedRoom": null
 }
 
 
@@ -28,4 +29,13 @@ Content-Type: application/json
 }
 
 ### Delete user
-DELETE http://localhost:3000/api/v1/users/690bedb077a0cac0fb8226c7
+DELETE http://localhost:3000/api/v1/users/6993ac92e2440920f91c64f9
+
+###
+PATCH http://localhost:3000/api/v1/users/698497777b22eb803507722d/saveRoom
+Content-Type: application/json
+
+{
+  "savedRoom": null
+}
+

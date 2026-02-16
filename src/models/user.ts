@@ -11,6 +11,9 @@ export interface User {
   shopId: string;
   role: "customer" | "admin";
   createdAt?: Date;
+   savedRoom: any | null;
+
+  
 }
 
 export const createUserSchema = z.object({
@@ -21,5 +24,7 @@ export const createUserSchema = z.object({
   phoneNumber: z.string().regex(/^\+353\d{7,12}$/),
   shopId: z.string(),
   role: z.enum(["customer", "admin"]),
+  savedRoom: z.any().nullable()
+
 });
 

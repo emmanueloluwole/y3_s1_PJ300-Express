@@ -4,7 +4,8 @@ import {
   getUserById,
   createUser,
   updateUser,
-  deleteUser
+  deleteUser,
+  saveRoomForUser
 }from "../controllers/users";
 
 const router = Router();
@@ -14,5 +15,8 @@ router.get("/:id", getUserById);
 router.post("/", createUser);
 router.put("/:id", updateUser);
 router.delete("/:id", deleteUser);
+router.patch("/:id/saveRoom", saveRoomForUser);
+
+
 
 export default router;

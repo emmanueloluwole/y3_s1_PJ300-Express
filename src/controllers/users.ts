@@ -113,3 +113,32 @@ export const deleteUser = async (req: Request, res: Response) => {
     return res.status(400).json({ error: "Failed to delete user." });
   }
 };
+
+export const saveRoomForUser = async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const { savedRoom } = req.body;
+
+  // Accept null or object, but reject if missing entirely
+  if (!("savedRoom" in req.body)) {
+    return res.status(400).json({ error: "savedRoom is required" });
+  }
+
+  try {
+    const result = await collections.users?.updateOne(
+      { _id: new ObjectId(id) },
+      { $set: { savedRoom } }
+    );
+
+    if (result?.matchedCount === 0) {
+      return res.status(404).json({ error: `User with ID ${id} not found.` });
+    }
+
+    return res.status(200).json({ message: "Room saved successfully" });
+  } catch (error) {
+    console.error("Error saving room:", error);
+    return res.status(500).json({ error: "Failed to save room" });
+  }
+};
+
+
+
